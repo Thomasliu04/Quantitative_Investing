@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quantinvesting"
+version = "0.1.0"
+description = "Tushare + Qlib multi-factor research pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=1.24",
+  "pyarrow>=14.0",
+  "pyyaml>=6.0",
+  "python-dotenv>=1.0",
+  "tushare>=1.4",
+  "tqdm>=4.66",
+  "loguru>=0.7",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

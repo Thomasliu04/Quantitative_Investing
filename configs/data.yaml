@@ -1,0 +1,54 @@
+# Quantinvesting data pipeline defaults
+# Override via CLI or environment variables when needed.
+
+paths:
+  root: data
+  raw: data/raw
+  clean: data/clean
+  qlib: data/qlib
+  meta: data/meta
+
+download:
+  # First-pass research window; expand later if needed.
+  start_date: "20180101"
+  end_date: null  # null = today
+  sleep_seconds: 0.15
+  max_retries: 3
+  retry_backoff_seconds: 2.0
+
+  # Universe for later filtering (download can still be full-market by date).
+  stock_pool: csi500  # all_a | csi500 | csi1000 | csi800
+
+  apis:
+    meta:
+      - stock_basic
+      - trade_cal
+      - index_classify
+    daily:
+      - daily
+      - daily_basic
+      - adj_factor
+    financial_vip:
+      - fina_indicator_vip
+      - income_vip
+      - balancesheet_vip
+      - cashflow_vip
+    index:
+      - index_daily
+      - index_weight
+
+clean:
+  mad_n: 3.0
+  fillna: 0.0
+  neutralize:
+    industry: true
+    market_cap: true
+  exclude:
+    st: true
+    listed_days_min: 63  # ~3 months trading days
+
+label:
+  # CMS report: T+1 to T+21 VWAP return, 20-day rebalance
+  horizon_days: 20
+  price_field: vwap
+  rebalance_days: 20

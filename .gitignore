@@ -1,0 +1,33 @@
+# secrets
+.env
+*.token
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+
+# data (large / regenerable) — keep directory placeholders
+data/raw/**
+data/clean/**
+data/qlib/**
+!data/raw/.gitkeep
+!data/clean/.gitkeep
+!data/qlib/.gitkeep
+!data/meta/.gitkeep
+
+# ide / os
+.idea/
+.vscode/
+.DS_Store
+
+# notebooks
+.ipynb_checkpoints/
+
+# vendor: clone Microsoft Qlib separately at repo root (see README)
+/qlib/

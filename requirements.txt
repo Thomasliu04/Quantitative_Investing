@@ -1,0 +1,12 @@
+# project
+pandas>=2.0
+numpy>=1.24
+pyarrow>=14.0
+pyyaml>=6.0
+python-dotenv>=1.0
+tushare>=1.4
+tqdm>=4.66
+loguru>=0.7
+
+# research stack (install qlib separately from ./qlib)
+# pip install -e "./qlib[dev]"
